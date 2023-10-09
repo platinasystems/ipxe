@@ -396,6 +396,9 @@ int netboot ( struct net_device *netdev ) {
 		goto err_ifopen;
 	ifstat ( netdev );
 
+    // need at least 20 sec
+    sleep(30);
+
 	/* Configure device */
 	if ( ( rc = ifconf ( netdev, NULL, 0 ) ) != 0 )
 		goto err_dhcp;
